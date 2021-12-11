@@ -1,0 +1,33 @@
+<div class="container">
+    <div class="upper-wrapper">
+        <div class="col-sm-5 ">
+            <input type="text" class="form-control" id="search-bar" placeholder="Search..." [(ngModel)]="filter">
+        </div>
+        <div>
+            <button class="btn btn-secondary" id="clearbtn" (click)="filter=''">Clear</button>
+            <button class="btn btn-success" id="addbtn" [routerLink]="['/addEmpData']">ADD</button>
+        </div>
+    </div>
+    <table class="table table-bordered table-hover table-striped" id="emp-table">
+        <thead class="table-dark" >
+            <tr>
+                <th (click)="sort('id')" [hidden]="true">EMPLOYEE ID &nbsp;<fa-icon [icon]="sortIcon"></fa-icon></th>
+                <th (click)="sort('name')">EMPLOYEE NAME &nbsp;<fa-icon [icon]="sortIcon"></fa-icon></th>
+                <th (click)="sort('age')">EMPLOYEE AGE &nbsp;<fa-icon [icon]="sortIcon"></fa-icon></th>
+                <th>ACTION</th>
+            </tr>
+        </thead>
+        <tbody id="tbody" *ngFor="let emp of empData | filter:filter| orderBy : key : sortOrder | paginate: config">
+            <tr>
+                <td [hidden]="true">{{emp.id}}</td>
+                <td>{{emp.name}}</td>
+                <td>{{emp.age}}</td>
+                <td><button class="btn btn-warning" (click)="onEdit(emp)">Edit</button>
+                    <button class="btn btn-danger" (click)="onDelete(emp)">Delete</button>
+                </td>
+            </tr>
+        </tbody>
+    </table>
+
+    <pagination-controls (pageChange)="pageChanged($event)"></pagination-controls>
+</div>

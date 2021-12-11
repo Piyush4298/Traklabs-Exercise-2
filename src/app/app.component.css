@@ -1,0 +1,9 @@
+.navbar{
+    background-color: #0be881!important;
+}
+
+.navbar-light .container-fluid a:hover{
+    background-color: #485460;
+    color: #fff;
+    transition: 0.3s;
+}

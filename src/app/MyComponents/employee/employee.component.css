@@ -1,0 +1,38 @@
+.container table{
+    text-align: center;
+}
+
+#search-bar{
+    float: left;
+    margin-top: 40px;
+    margin-bottom: 50px;
+}
+
+.upper-wrapper button{
+    margin-top: 40px;
+    width: 70px;
+    border-radius: 10px;
+}
+
+#addbtn{
+    float: right;
+}
+
+#clearbtn{
+    margin-left: 10px;
+}
+
+#tbody .btn{
+    border-radius: 10px;
+    margin-left: 4px;
+}
+
+.container pagination-controls /deep/{
+    text-align: center;
+    font-size: larger;
+    text-transform: uppercase;
+}
+
+.container pagination-controls /deep/ a:hover{
+    background-color: #ffdd59;
+}
